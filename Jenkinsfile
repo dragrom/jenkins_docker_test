@@ -2,6 +2,7 @@ pipeline {
   environment {
     registry = "dragrom/docker-test"
     registryCredential = 'dockerhub'
+    gitCredential = 'github'
     dockerImage = ''
   }
   agent any
@@ -9,7 +10,8 @@ pipeline {
   stages {
     stage('Cloning Git') {
       steps {
-        git 'https://github.com/dragrom/docker-test'
+        git credentialsId: 'github'
+            url: 'https://github.com/dragrom/jenkins_docker_test'
       }
     }
     stage('Build') {
