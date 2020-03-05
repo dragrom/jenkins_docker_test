@@ -10,8 +10,7 @@ pipeline {
   stages {
     stage('Cloning Git') {
       steps {
-        git credentialsId: 'github'
-            url: 'https://github.com/dragrom/jenkins_docker_test'
+        git credentialsId: 'github', url: 'https://github.com/dragrom/jenkins_docker_test'
       }
     }
     stage('Build') {
